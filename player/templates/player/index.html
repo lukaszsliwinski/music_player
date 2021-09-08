@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Music player</title>
+    <link rel="stylesheet" href="{% static 'player/style.css' %}">
+
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script> <!-- usunąć na produkcji -->
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" src="{% static 'player/player.js' %}"></script>
+
+
+</body>
+
+</html>
