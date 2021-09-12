@@ -4,6 +4,8 @@ let isPlaying = false;
 
 const songObjsList = createObjList();
 
+// document.getElementById(0).classList.add("now-playing");
+
 
 // Function that creates list with song objects from django database
 // songsObjsString variable is created in <head> section, in templateand
@@ -39,7 +41,7 @@ function loadAudio(songId){
 
 
 // Start/stop button function
-function startStop() {
+function startPause() {
   if (isPlaying === false) {
     playSong();
   } else {
@@ -90,3 +92,13 @@ function previousSong() {
 		playSong();
 	};
 };
+
+
+// Load and play song from playlist
+function playFromPlaylist(id) {
+  songId = id;
+  loadAudio(songId);
+  playSong();
+  // document.getElementsByClassName("now-playing")[0].classList.remove("now-playing");
+  // document.getElementById(id).classList.add("now-playing");
+}

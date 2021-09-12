@@ -19,19 +19,18 @@
 
 <body onload="loadAudio(songId)">
     
-    <div class="app" id="home" oncontextmenu="return false">
-        <ul class="playlist" id="playlist">
-            {% for song in songs %}
-            <li class="song-name"><a href="{{ song.audio.url }}">{{ song.author}} - {{ song.title }}</a></li>
+    <div class="app" oncontextmenu="return false">
+        <ul>
+            {% for song, song_id in numbered_songs %}
+            <li class="song-name" id="{{ song_id }}" onclick="playFromPlaylist('{{ song_id }}')">{{ song.author}} - {{ song.title }}</li>
             {% endfor %}
         </ul>
         <div class="actual">Aktualnie: <p id="artist"></p> - <p id="title"></p></div>
         <div class="controls">
-            <button onclick="previousSong()" id="pre"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
-            <button onclick="startStop()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
-            <button onclick="nextSong()" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+            <button onclick="previousSong()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+            <button onclick="startPause()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+            <button onclick="nextSong()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
         </div>
-
     </div>
 
     <script type="text/javascript" src="{% static 'player/player.js' %}"></script>
