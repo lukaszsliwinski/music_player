@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{% static 'player/reset.css' %}">
     <link rel="shortcut icon" href="#">   <!-- zabezpiecza przed błędem favicon 404 - doczytać i uzupełnić w projektach -->
     <link rel="stylesheet" href="{% static 'player/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
     
     <!-- Import list of objects from django database as a string -->
@@ -16,22 +17,22 @@
     </script>
 </head>
 
-<body onload="createObjList()">
+<body onload="loadAudio(songId)">
     
-    
-    <section class="player" id="home" oncontextmenu="return false">
+    <div class="app" id="home" oncontextmenu="return false">
         <ul class="playlist" id="playlist">
             {% for song in songs %}
-            <li class="song-name"><a href="{{ song.audio.url }}"><span class="note">&#119137; </span>{{ song.author}} - {{ song.title }}</a></li>
+            <li class="song-name"><a href="{{ song.audio.url }}">{{ song.author}} - {{ song.title }}</a></li>
             {% endfor %}
         </ul>
-        <audio controls controlsList="nodownload" src="" id="audioPlayer"></audio>
-        <!-- <script type="text/javascript" src="{% static 'website/js/player.js' %}"></script>  -->
-    </section>
+        <div class="actual">Aktualnie: <p id="artist"></p> - <p id="title"></p></div>
+        <div class="controls">
+            <button onclick="previousSong()" id="pre"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+            <button onclick="startStop()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+            <button onclick="nextSong()" id="next"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+        </div>
 
-
-
-    <div id="songObj"></div>
+    </div>
 
     <script type="text/javascript" src="{% static 'player/player.js' %}"></script>
 </body>

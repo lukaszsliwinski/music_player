@@ -1,3 +1,10 @@
+let songAudio = document.createElement('audio');
+let songId = 0;
+let isPlaying = false;
+
+const songObjsList = createObjList();
+
+
 // Function that creates list with song objects from django database
 // songsObjsString variable is created in <head> section, in templateand
 // and contains all data in one string: "[{...},{...},{...}]"
@@ -7,42 +14,79 @@ function createObjList() {
   // Create list with strings containing objects: ["{...}","{...}","{...}"]
   let objsString = listWithObjsString.substring(listWithObjsString.indexOf("[") + 1, listWithObjsString.indexOf("]"));
   let objsArray = objsString.split("}, ");
-  for (i=0; i < objsArray.length - 1; i++) {
+  for (i = 0; i < objsArray.length - 1; i++) {
     objsArray[i] += "}";
   };
 
   // Change strings into objects
   let songObjs = [];
-  for (i=0; i < objsArray.length; i++) {
+  for (i = 0; i < objsArray.length; i++) {
     songObjs.push(JSON.parse(objsArray[i].replace(/'/g, '"')))
   };
 
-
-  console.log(songObjs);
-
-  document.getElementById("songObj").innerHTML = songObjs[1].title;
+  return songObjs;
 }
 
 
-audioPlayer();
-function audioPlayer() {
-    var currentSong = 0;
-    $("#playlist li:eq("+currentSong+")").addClass("current-song");
-    $("#audioPlayer")[0].src = $("#playlist li a")[0];
-    $("#playlist li a").click(function(e) {
-        e.preventDefault();
-        $("#audioPlayer")[0].src = this;
-        $("#audioPlayer")[0].play();
-        $("#playlist li").removeClass("current-song");
-        currentSong = $(this).parent().index();
-        $(this).parent().addClass("current-song");
-    });
+// Load audio file to 'songAudio' variable
+function loadAudio(songId){
+	songAudio.src = songObjsList[songId].audio;
+  songAudio.load();
 
-    $("#audioPlayer")[0].addEventListener("ended", function() {
-        currentSong++;
-        $("#playlist li").removeClass("current-song");
-        $("#playlist li:eq("+currentSong+")").addClass("current-song");
-        $("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
-        $("#audioPlayer")[0].play();
-    });
-}
+  title.innerHTML = songObjsList[songId].title;	
+  artist.innerHTML = songObjsList[songId].author;
+};
+
+
+// Start/stop button function
+function startStop() {
+  if (isPlaying === false) {
+    playSong();
+  } else {
+    pauseSong();
+  };
+};
+
+
+// Play song
+function playSong() {
+  songAudio.play();
+  isPlaying = true;
+  play.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
+};
+
+
+// Pause song
+function pauseSong() {
+	songAudio.pause();
+	isPlaying = false;
+	play.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+};
+
+
+// Load and play next song
+function nextSong() {
+	if (songId < songObjsList.length - 1) {
+		songId += 1;
+		loadAudio(songId);
+		playSong();
+	} else {
+		songId = 0;
+		loadAudio(songId);
+		playSong();
+	};
+};
+
+
+// Load and play previous song
+function previousSong() {
+	if (songId > 0){
+		songId -= 1;
+		loadAudio(songId);
+		playSong();
+	} else {
+		songId = songObjsList.length - 1;
+		loadAudio(songId);
+		playSong();
+	};
+};
