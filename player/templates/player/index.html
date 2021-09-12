@@ -9,19 +9,25 @@
     <link rel="shortcut icon" href="#">   <!-- zabezpiecza przed błędem favicon 404 - doczytać i uzupełnić w projektach -->
     <link rel="stylesheet" href="{% static 'player/style.css' %}">
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    
+    <!-- Import list of objects from django database as a string -->
     <script type="text/javascript">
-        const songsObjsString = "{{ songs_objs_list | safe }}";
+        const songObjsString = "{{ song_objs_list | safe }}";
     </script>
 </head>
 
 <body onload="createObjList()">
-
-    <div>
-        {% for song in songs %}
-        {{ song.title }}
-        {% endfor %}
-    </div>
-
+    
+    
+    <section class="player" id="home" oncontextmenu="return false">
+        <ul class="playlist" id="playlist">
+            {% for song in songs %}
+            <li class="song-name"><a href="{{ song.audio.url }}"><span class="note">&#119137; </span>{{ song.author}} - {{ song.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <audio controls controlsList="nodownload" src="" id="audioPlayer"></audio>
+        <!-- <script type="text/javascript" src="{% static 'website/js/player.js' %}"></script>  -->
+    </section>
 
 
 

@@ -1,3 +1,79 @@
-* {
-    color: red;
+/* 'can't copy' from metronome */
+
+/* Main css file */
+
+
+/* Fonts and colors */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+
+:root {
+    --green: rgb(0, 200, 0);
+}
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    width: 100%;
+    color: white;
+    background-color: black;
+}
+
+/* player */
+
+
+.player {
+    padding-top: 200px;
+}
+
+.playlist {
+    position: center;
+    display: block;
+    margin: 50px auto 0 auto;
+    border: 1px solid var(--green);
+    border-radius: 10px;
+    width: 65%;
+}
+
+.song-name {
+    display: block;
+    margin: 10px auto 10px 35px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.song-name:hover {
+    transition: color .1s linear;
+    color: var(--green);
+}
+
+.note {
+    display: none;
+    color: white;
+    margin: 0 4px 0 -20px;
+}
+
+/* style for showing note icon only with actual playing song */
+.current-song .note {
+    display: inline;
+}
+
+audio {
+    position: center;
+    display: block;
+    margin: 10px auto 0 auto;
+    width: 70%;
 }
