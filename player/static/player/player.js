@@ -1,10 +1,10 @@
-let songAudio = document.createElement('audio');
 let songId = 0;
 let isPlaying = false;
+let songAudio = document.createElement('audio');
 
 const songObjsList = createObjList();
 
-// document.getElementById(0).classList.add("now-playing");
+updateActiveSong(songId)
 
 
 // Function that creates list with song objects from django database
@@ -31,12 +31,13 @@ function createObjList() {
 
 
 // Load audio file to 'songAudio' variable
-function loadAudio(songId){
+function loadAudio(songId) {
+  title.innerHTML = songObjsList[songId].title;	
+  artist.innerHTML = songObjsList[songId].author;
 	songAudio.src = songObjsList[songId].audio;
   songAudio.load();
 
-  title.innerHTML = songObjsList[songId].title;	
-  artist.innerHTML = songObjsList[songId].author;
+
 };
 
 
@@ -72,10 +73,12 @@ function nextSong() {
 		songId += 1;
 		loadAudio(songId);
 		playSong();
+    updateActiveSong(songId);
 	} else {
 		songId = 0;
 		loadAudio(songId);
 		playSong();
+    updateActiveSong(songId);
 	};
 };
 
@@ -86,19 +89,29 @@ function previousSong() {
 		songId -= 1;
 		loadAudio(songId);
 		playSong();
+    updateActiveSong(songId);
 	} else {
 		songId = songObjsList.length - 1;
 		loadAudio(songId);
 		playSong();
+    updateActiveSong(songId);
 	};
 };
 
 
 // Load and play song from playlist
 function playFromPlaylist(id) {
-  songId = id;
+  songId = parseInt(id);
   loadAudio(songId);
   playSong();
-  // document.getElementsByClassName("now-playing")[0].classList.remove("now-playing");
-  // document.getElementById(id).classList.add("now-playing");
+  updateActiveSong(songId);
+}
+
+
+// Add unique class to actual played song on playlist
+function updateActiveSong(songId) {
+  for (i=0; i < songObjsList.length; i++) {
+    document.getElementById(i).classList.remove("now-playing");
+  }
+  document.getElementById(songId).classList.add("now-playing");
 }
