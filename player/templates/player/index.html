@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Music player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'player/reset.css' %}">
     <link rel="shortcut icon" href="#">   <!-- zabezpiecza przed błędem favicon 404 - doczytać i uzupełnić w projektach -->
     <link rel="stylesheet" href="{% static 'player/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
     
     <!-- Import list of objects from django database as a string -->
     <script type="text/javascript">
@@ -30,6 +30,9 @@
             <button onclick="previousSong()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
             <button onclick="startPause()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
             <button onclick="nextSong()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+        </div>
+        <div class="duration">
+            <input type="range" min="0" max="100" value="0" id="slider" oninput="changeDuration()">
         </div>
     </div>
 

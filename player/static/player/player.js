@@ -1,6 +1,8 @@
 let songId = 0;
 let isPlaying = false;
+let timer;
 let songAudio = document.createElement('audio');
+let slider = document.querySelector('#slider');
 
 const songObjsList = createObjList();
 
@@ -32,12 +34,13 @@ function createObjList() {
 
 // Load audio file to 'songAudio' variable
 function loadAudio(songId) {
+  clearInterval(timer);
+  slider.value = 0;
   title.innerHTML = songObjsList[songId].title;	
   artist.innerHTML = songObjsList[songId].author;
 	songAudio.src = songObjsList[songId].audio;
   songAudio.load();
-
-
+  timer = setInterval(rangeSlider, 1000);
 };
 
 
@@ -105,13 +108,51 @@ function playFromPlaylist(id) {
   loadAudio(songId);
   playSong();
   updateActiveSong(songId);
-}
+};
 
 
-// Add unique class to actual played song on playlist
+// Add unique class to the currently played song on playlist
 function updateActiveSong(songId) {
   for (i=0; i < songObjsList.length; i++) {
     document.getElementById(i).classList.remove("now-playing");
-  }
+  };
   document.getElementById(songId).classList.add("now-playing");
-}
+};
+
+
+// Change slider position 
+function changeDuration() {
+  let position = songAudio.duration * (slider.value / 100);
+  songAudio.onprogress = function() {
+    songAudio.currentTime = position;
+  };
+  
+	
+  console.log(songAudio.duration);
+  console.log(slider.value);
+  console.log(position);
+  console.log(songAudio.currentTime);
+};
+
+
+// Update slider position and play another song on the list
+function rangeSlider() {
+	let position = 0;
+	if (!isNaN(songAudio.duration)) {
+		position = songAudio.currentTime * (100 / songAudio.duration);
+		slider.value = position;
+  };
+  if (songAudio.ended) {
+    play.innerHTML = '<i class="fa fa-play" aria-hidden="true"></i>';
+    if (songId < songObjsList.length - 1) {
+		  songId += 1;
+		  loadAudio(songId);
+		  playSong();
+      updateActiveSong(songId);
+    } else {
+      songId = 0;
+      loadAudio(songId);
+      updateActiveSong(songId);
+    };
+	};
+};
