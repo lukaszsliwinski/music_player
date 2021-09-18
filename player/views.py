@@ -17,6 +17,5 @@ def index(request):
     for i in range(len(songs)):
         song_nums.append(i)
     numbered_songs = zip(songs, song_nums)
-    
     context = {'songs' : songs, 'song_objs_list' : song_objs_list, "numbered_songs" : numbered_songs}
     return render(request, 'player/index.html', context)

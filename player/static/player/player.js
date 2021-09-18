@@ -56,6 +56,8 @@ function startPause() {
 
 // Play song
 function playSong() {
+  // songAudio.currentTime = 50;
+  // console.log(songAudio.currentTime);
   songAudio.play();
   isPlaying = true;
   play.innerHTML = '<i class="fa fa-pause" aria-hidden="true"></i>';
@@ -121,17 +123,12 @@ function updateActiveSong(songId) {
 
 
 // Change slider position 
-function changeDuration() {
-  let position = songAudio.duration * (slider.value / 100);
-  songAudio.onprogress = function() {
-    songAudio.currentTime = position;
-  };
-  
-	
-  console.log(songAudio.duration);
-  console.log(slider.value);
-  console.log(position);
-  console.log(songAudio.currentTime);
+function changeDuration(rangeElement) {
+  songAudio.currentTime = parseInt(songAudio.duration * rangeElement.value/100);
+
+
+  // let position = songAudio.duration * (slider.value / 100);
+  // songAudio.currentTime = position;
 };
 
 
