@@ -20,12 +20,9 @@
 <body onload="loadAudio(songId)">
     
     <div class="app" oncontextmenu="return false">
-        <ul>
-            {% for song, song_id in numbered_songs %}
-            <li class="song-name" id="{{ song_id }}" onclick="playFromPlaylist('{{ song_id }}')">{{ song.author}} - {{ song.title }}</li>
-            {% endfor %}
-        </ul>
-        <div class="actual">Aktualnie: <p id="artist"></p> - <p id="title"></p></div>
+        <img id="cover"></img>
+        <div id="title"></div>
+        <div id="artist"></div>
         <div class="controls">
             <button onclick="previousSong()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
             <button onclick="startPause()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
@@ -34,6 +31,11 @@
         <div class="duration">
             <input type="range" min="0" max="100" value="0" id="slider" oninput="changeDuration(this)">
         </div>
+        <ul class="playlist">
+            {% for song, song_id, song_num in numbered_songs %}
+            <li class="song-name" id="{{ song_id }}" onclick="playFromPlaylist('{{ song_id }}')">{{ song_num }}. <span>{{ song.author}} - {{ song.title }}</span></li>
+            {% endfor %}
+        </ul>
     </div>
 
     <script type="text/javascript" src="{% static 'player/player.js' %}"></script>

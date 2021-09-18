@@ -3,6 +3,7 @@ let isPlaying = false;
 let timer;
 let songAudio = document.createElement('audio');
 let slider = document.querySelector('#slider');
+let cover = document.querySelector('#cover');
 
 const songObjsList = createObjList();
 
@@ -38,6 +39,7 @@ function loadAudio(songId) {
   slider.value = 0;
   title.innerHTML = songObjsList[songId].title;	
   artist.innerHTML = songObjsList[songId].author;
+  cover.src = songObjsList[songId].img;
 	songAudio.src = songObjsList[songId].audio;
   songAudio.load();
   timer = setInterval(rangeSlider, 1000);

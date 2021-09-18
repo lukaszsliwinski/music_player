@@ -1,4 +1,4 @@
-class Add_response_headers:
+class AddResponseHeaders:
     def __init__(self, get_response):
         self.get_response = get_response
 
