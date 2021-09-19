@@ -1,7 +1,6 @@
 /* playlist style */
 .app__playlist {
     background-color: black;
-    color: white;
     height: 250px;
     width: 280px;
     overflow-y: auto;

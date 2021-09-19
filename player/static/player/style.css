@@ -5,6 +5,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     user-select: none;
     letter-spacing: .1em;
+    color: white;
 }
 
 :root {
@@ -43,12 +44,14 @@ body {
 }
 
 .inf__title {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .inf__artist {
-    font-size: 15px;
+    font-size: 12px;
+    font-variant: small-caps;
 }
 
 .app__controls {
@@ -72,5 +75,12 @@ button {
     height: 40px;
     padding: 5px;
     margin: 10px;
-    border: 2px solid black;
+    font-size: 30px;
+    color: white;
+    /* zostawić zakomentowane, usunąć na produkcji */
+    /* border: 1px solid white; */
+}
+
+button:hover {
+    color: var(--green);
 }
