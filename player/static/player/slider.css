@@ -4,6 +4,7 @@ input[type=range] {
     overflow: hidden;
     border-radius: 5px;
     width: 250px;
+    height: 10px;
     background-color: transparent;
 }
 

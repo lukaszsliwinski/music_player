@@ -5,6 +5,7 @@
     width: 280px;
     height: 250px;
     background-color: var(--playlist-background);
+    scrollbar-width: thin;
 }
 
 .playlist__song {
@@ -51,7 +52,7 @@
 
 /* scrollbar style */
 .app__playlist::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 .app__playlist::-webkit-scrollbar-thumb {

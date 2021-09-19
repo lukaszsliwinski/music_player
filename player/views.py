@@ -13,6 +13,7 @@ def index(request):
                                     'audio' : instance.audio.url,
                                     })
         except ValueError:
+            # add default cover if img is not loaded
             song_objs_list.append({ 'pk' : instance.pk,
                                     'title' : instance.title,
                                     'author' : instance.author,

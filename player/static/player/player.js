@@ -80,12 +80,12 @@ function nextSong() {
 		songId += 1;
 		loadAudio(songId);
     updateActiveSong(songId);
-		if (isPlaying) playSong();
+    continuePlaying();
 	} else {
 		songId = 0;
 		loadAudio(songId);
     updateActiveSong(songId);
-    if (isPlaying) playSong();
+    continuePlaying();
 	};
 };
 
@@ -96,13 +96,23 @@ function previousSong() {
 		songId -= 1;
 		loadAudio(songId);
     updateActiveSong(songId);
-		if (isPlaying) playSong();
+    continuePlaying();
 	} else {
 		songId = songObjsList.length - 1;
 		loadAudio(songId);
     updateActiveSong(songId);
-		if (isPlaying) playSong();
+    continuePlaying();
 	};
+};
+
+
+// Check isPlaying value and don't change playing state
+function continuePlaying() {
+  if (isPlaying) {
+    playSong();
+  } else {
+    pauseSong();
+  };
 };
 
 
