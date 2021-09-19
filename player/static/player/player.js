@@ -37,10 +37,12 @@ function loadAudio(songId) {
   slider.value = 0;
   title.innerHTML = songObjsList[songId].title;	
   author.innerHTML = songObjsList[songId].author;
+  // songObjsList[songId].img ? cover.src = songObjsList[songId].img : cover.src = 'default_cover.png';
   cover.src = songObjsList[songId].img;
 	songAudio.src = songObjsList[songId].audio;
   songAudio.load();
   timer = setInterval(rangeSlider, 1000);
+  console.log(cover.src);
 };
 
 

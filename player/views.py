@@ -5,12 +5,20 @@ def index(request):
     songs = Song.objects.all().order_by('author')
     song_objs_list = []
     for instance in Song.objects.all().order_by('author'):
-        song_objs_list.append({ 'pk' : instance.pk,
-                                'title' : instance.title,
-                                'author' : instance.author,
-                                'img' : instance.img.url, 
-                                'audio' : instance.audio.url
-                                })
+        try:
+            song_objs_list.append({ 'pk' : instance.pk,
+                                    'title' : instance.title,
+                                    'author' : instance.author,
+                                    'img' : instance.img.url, 
+                                    'audio' : instance.audio.url,
+                                    })
+        except ValueError:
+            song_objs_list.append({ 'pk' : instance.pk,
+                                    'title' : instance.title,
+                                    'author' : instance.author,
+                                    'img' : "media/default_cover.png",
+                                    'audio' : instance.audio.url,
+                                    })
 
     # numbered_songs list is used in template to pass song id from playlist into playFromPlaylist() function as parameter
     # and number songs on playlist starting from 1 (increased_nums list)
