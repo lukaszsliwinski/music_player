@@ -2,8 +2,6 @@ let songId = 0;
 let isPlaying = false;
 let timer;
 let songAudio = document.createElement('audio');
-let slider = document.querySelector('#slider');
-let cover = document.querySelector('#cover');
 
 const songObjsList = createObjList();
 
@@ -11,7 +9,7 @@ updateActiveSong(songId)
 
 
 // Function that creates list with song objects from django database
-// songsObjsString variable is created in <head> section, in templateand
+// songsObjsString variable is created in <head> section, in template
 // and contains all data in one string: "[{...},{...},{...}]"
 function createObjList() {
   const listWithObjsString = songObjsString;

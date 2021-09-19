@@ -1,24 +1,63 @@
-/* 'can't copy' from metronome */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
 /* font-family: 'Montserrat', sans-serif; */
-
-
 
 body {
     font-family: 'Montserrat', sans-serif;
     user-select: none;
+    letter-spacing: .1em;
+}
+
+:root {
+    --green: rgb(0, 200, 0);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .app {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-
+    width: 300px;
+    height: 600px;
+    background-color: rgb(50, 50, 50);
 }
 
-.controls {
+.app__inf {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inf__cover {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 10px;
+}
+
+.inf__title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.inf__artist {
+    font-size: 15px;
+}
+
+.app__controls {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app__btns {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,12 +74,76 @@ button {
     border: 2px solid black;
 }
 
-.actual {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+.app__playlist {
+    background-color: black;
+    color: white;
+    height: 250px;
+    width: 280px;
+    overflow-y: auto;
 }
 
+.app__playlist::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+.app__playlist::-webkit-scrollbar-track {
+    background: #adadad;
+}
+
+
+
+
+.app__playlist::-webkit-scrollbar-thumb {
+    background: rgb(120, 120, 120);
+}
+
+
+
+
+.app__playlist::-webkit-scrollbar-thumb:hover {
+    background: rgb(80, 80, 80);
+}
+
+
+.playlist__song {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px 0;
+}
+
+.playlist__song:first-of-type {
+    margin-top: 2px;
+}
+
+.playlist__song:last-of-type {
+    margin-bottom: 2px;
+}
+
+.playlist__song:hover {
+    background-color: rgb(60, 60, 60);
+    cursor: pointer;
+}
+
+.playlist__song-num {
+    display: block;
+    width: 30px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.playlist__title {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.playlist__author {
+    margin-top: 2px;
+    font-size: 10px;
+}
+
+
 .now-playing {
-    color: red;
+    color: var(--green);
 }
