@@ -36,7 +36,7 @@ function loadAudio(songId) {
   clearInterval(timer);
   slider.value = 0;
   title.innerHTML = songObjsList[songId].title;	
-  artist.innerHTML = songObjsList[songId].author;
+  author.innerHTML = songObjsList[songId].author;
   cover.src = songObjsList[songId].img;
 	songAudio.src = songObjsList[songId].audio;
   songAudio.load();
@@ -77,13 +77,13 @@ function nextSong() {
 	if (songId < songObjsList.length - 1) {
 		songId += 1;
 		loadAudio(songId);
-		playSong();
     updateActiveSong(songId);
+		if (isPlaying) playSong();
 	} else {
 		songId = 0;
 		loadAudio(songId);
-		playSong();
     updateActiveSong(songId);
+    if (isPlaying) playSong();
 	};
 };
 
@@ -93,13 +93,13 @@ function previousSong() {
 	if (songId > 0){
 		songId -= 1;
 		loadAudio(songId);
-		playSong();
     updateActiveSong(songId);
+		if (isPlaying) playSong();
 	} else {
 		songId = songObjsList.length - 1;
 		loadAudio(songId);
-		playSong();
     updateActiveSong(songId);
+		if (isPlaying) playSong();
 	};
 };
 
