@@ -21,13 +21,13 @@ input[type=range]::-webkit-slider-thumb {
     height: 10px;
     background: white;
     cursor: pointer;
-    box-shadow: -140px 0 0 130px var(--green);
+    box-shadow: -140px 0 0 130px var(--main);
 
     margin-top: -1px;
 }
 
 input[type=range]::-webkit-slider-thumb:hover {
-    background-color: var(--green);
+    background-color: var(--main);
 }
 
 input[type=range]::-moz-range-thumb {
@@ -40,7 +40,7 @@ input[type=range]::-moz-range-thumb {
     height: 10px;
     background: white;
     cursor: pointer;
-    box-shadow: -140px 0 0 130px var(--green);
+    box-shadow: -140px 0 0 130px var(--main);
 }
 
 input[type=range]::-webkit-slider-runnable-track {

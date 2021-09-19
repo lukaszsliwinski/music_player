@@ -1,35 +1,11 @@
 /* playlist style */
 .app__playlist {
-    background-color: black;
+    background-color: var(--playlist-background);
     height: 250px;
     width: 280px;
     overflow-y: auto;
     border-radius: 2px;
 }
-
-.app__playlist::-webkit-scrollbar {
-    width: 10px;
-}
-
-
-.app__playlist::-webkit-scrollbar-track {
-    background: #adadad;
-}
-
-
-
-
-.app__playlist::-webkit-scrollbar-thumb {
-    background: rgb(120, 120, 120);
-}
-
-
-
-
-.app__playlist::-webkit-scrollbar-thumb:hover {
-    background: rgb(80, 80, 80);
-}
-
 
 .playlist__song {
     display: flex;
@@ -47,7 +23,7 @@
 }
 
 .playlist__song:hover {
-    background-color: rgb(60, 60, 60);
+    background-color: var(--song-hover);
     cursor: pointer;
 }
 
@@ -70,5 +46,19 @@
 
 
 .now-playing {
-    color: var(--green);
+    color: var(--main);
+}
+
+
+
+.app__playlist::-webkit-scrollbar {
+    width: 10px;
+}
+
+.app__playlist::-webkit-scrollbar-thumb {
+    background: var(--scrollbar);
+}
+
+.app__playlist::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-hover);
 }

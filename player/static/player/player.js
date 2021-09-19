@@ -28,7 +28,7 @@ function createObjList() {
   };
 
   return songObjs;
-}
+};
 
 
 // Load audio file to 'songAudio' variable
@@ -125,10 +125,6 @@ function updateActiveSong(songId) {
 // Change slider position 
 function changeDuration(rangeElement) {
   songAudio.currentTime = parseInt(songAudio.duration * rangeElement.value/100);
-
-
-  // let position = songAudio.duration * (slider.value / 100);
-  // songAudio.currentTime = position;
 };
 
 

@@ -1,16 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300&display=swap');
 /* font-family: 'Montserrat', sans-serif; */
 
+
+/* used colors */
+:root {
+    --main: rgb(200, 200, 0);
+    --background: rgb(15, 15, 15);
+    --playlist-background: rgb(25, 25, 25);
+    --song-hover: rgb(40, 40, 40);
+    --scrollbar: rgb(120, 120, 120);
+    --scrollbar-hover: rgb(80, 80, 80);
+}
+
+
 body {
     font-family: 'Montserrat', sans-serif;
     user-select: none;
     letter-spacing: .1em;
     color: white;
-}
-
-:root {
-    --green: rgb(0, 200, 0);
-    --background: rgb(50, 50, 50);
 }
 
 .container {
@@ -28,6 +35,7 @@ body {
     width: 300px;
     height: 600px;
     background-color: var(--background);
+    border-radius: 5px;
 }
 
 .app__inf {
@@ -40,16 +48,16 @@ body {
 .inf__cover {
     width: 180px;
     height: 180px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .inf__title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
 }
 
-.inf__artist {
+.inf__author {
     font-size: 12px;
     font-variant: small-caps;
 }
@@ -74,13 +82,14 @@ button {
     width: 40px;
     height: 40px;
     padding: 5px;
-    margin: 10px;
-    font-size: 30px;
+    margin: 0 10px 15px;
+    font-size: 15px;
     color: white;
-    /* zostawić zakomentowane, usunąć na produkcji */
-    /* border: 1px solid white; */
+    border: 1px solid white;
+    border-radius: 50%;
 }
 
 button:hover {
-    color: var(--green);
+    color: var(--main);
+    border-color: var(--main);
 }
