@@ -2,9 +2,9 @@
 input[type=range] {
     -webkit-appearance: none;
     overflow: hidden;
+    border-radius: 5px;
     width: 250px;
     background-color: transparent;
-    border-radius: 5px;
 }
 
 input[type=range]:focus {
@@ -14,14 +14,14 @@ input[type=range]:focus {
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
 
-    box-sizing: content-box;
+    box-shadow: -140px 0 0 130px var(--main);
     border: 1px solid var(--background);
     border-radius: 50%;
+    box-sizing: content-box;
     width: 10px;
     height: 10px;
     background: white;
     cursor: pointer;
-    box-shadow: -140px 0 0 130px var(--main);
 
     margin-top: -1px;
 }
@@ -33,14 +33,14 @@ input[type=range]::-webkit-slider-thumb:hover {
 input[type=range]::-moz-range-thumb {
     -webkit-appearance: none;
     
-    box-sizing: content-box;
+    box-shadow: -140px 0 0 130px var(--main);
     border: 1px solid var(--background);
     border-radius: 50%;
+    box-sizing: content-box;
     width: 10px;
     height: 10px;
     background: white;
     cursor: pointer;
-    box-shadow: -140px 0 0 130px var(--main);
 }
 
 input[type=range]::-webkit-slider-runnable-track {

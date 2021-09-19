@@ -12,43 +12,43 @@
     --scrollbar-hover: rgb(80, 80, 80);
 }
 
-
 body {
     font-family: 'Montserrat', sans-serif;
-    user-select: none;
     letter-spacing: .1em;
     color: white;
+    user-select: none;
 }
 
 .container {
-    display: flex;
     justify-content: center;
     align-items: center;
+    display: flex;
     height: 100vh;
 }
 
 .app {
-    display: flex;
+
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    display: flex;
+    border-radius: 5px;
     width: 300px;
     height: 600px;
     background-color: var(--background);
-    border-radius: 5px;
 }
 
 .app__inf {
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: flex;
 }
 
 .inf__cover {
+    margin-bottom: 15px;
     width: 180px;
     height: 180px;
-    margin-bottom: 15px;
 }
 
 .inf__title {
@@ -60,36 +60,4 @@ body {
 .inf__author {
     font-size: 12px;
     font-variant: small-caps;
-}
-
-.app__controls {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.app__btns {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    padding: 5px;
-    margin: 0 10px 15px;
-    font-size: 15px;
-    color: white;
-    border: 1px solid white;
-    border-radius: 50%;
-}
-
-button:hover {
-    color: var(--main);
-    border-color: var(--main);
 }
