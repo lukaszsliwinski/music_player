@@ -3,7 +3,7 @@
     overflow-y: auto;    
     border-radius: 2px;
     width: 280px;
-    height: 250px;
+    height: 150px;
     background-color: var(--playlist-background);
     scrollbar-width: thin;
 }

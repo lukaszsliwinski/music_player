@@ -55,5 +55,5 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
-10 Enter https://127.0.0.1:8000/admin to log in administration panel and add songs<br><br>
+10 Enter https://127.0.0.1:8000/admin in browser to log in administration panel and add songs<br><br>
 11 Enter https://127.0.0.1:8000 in browser to run main page of an app
