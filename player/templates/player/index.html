@@ -13,10 +13,8 @@
     <link rel="stylesheet" href="{% static 'player/playlist.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <!-- Import list of objects from django database as a string -->
-    <script type="text/javascript">
-        const songObjsString = "{{ song_objs_list | safe }}";
-    </script>
+    <!-- Import list of song objects from django database -->
+    {{ song_objs_list|json_script:'songObjsList' }}
 </head>
 
 <body onload="loadAudio(songId)">
