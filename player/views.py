@@ -17,7 +17,7 @@ def index(request):
             song_objs_list.append({ 'pk' : instance.pk,
                                     'title' : instance.title,
                                     'author' : instance.author,
-                                    'img' : "media/default_cover.png",
+                                    'img' : "media/default_cover.jpg",
                                     'audio' : instance.audio.url,
                                     })
 

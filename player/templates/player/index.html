@@ -18,34 +18,36 @@
 </head>
 
 <body onload="loadAudio(songId)">
-    <div class="container">
-        <div class="app" oncontextmenu="return false">
-            <section class="app__inf">
-                <img class="inf__cover" id="cover"></img>
-                <h1 class="inf__title" id="title"></h1>
-                <h2 class="inf__author" id="author"></h2>
-            </section>
-            <section class="app__controls">
-                <div class="app__btns">
-                    <button onclick="previousSong()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
-                    <button onclick="startPause()" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
-                    <button onclick="nextSong()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
-                </div>
-                <input type="range" min="0" max="100" value="0" id="slider" oninput="changeDuration(this)">
-            </section>
-            <section class="app__playlist">
-                <ul>
-                    {% for song, song_id, song_num in numbered_songs %}
-                    <li class="playlist__song" id="{{ song_id }}" onclick="playFromPlaylist('{{ song_id }}')">
-                        <div class="playlist__song-num">{{ song_num }}</div>
-                        <div>
-                            <h3 class="playlist__title">{{ song.title }}</h3>
-                            <h4 class="playlist__author">{{ song.author}}</h4>
-                        </div>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </section>
+    <div class="background-img">
+        <div class="container">
+            <div class="app" oncontextmenu="return false">
+                <section class="app__inf">
+                    <img class="inf__cover" id="cover"></img>
+                    <h1 class="inf__title" id="title"></h1>
+                    <h2 class="inf__author" id="author"></h2>
+                </section>
+                <section class="app__controls">
+                    <div class="app__btns">
+                        <button onclick="previousSong()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+                        <button onclick="startPause()" class="btns__play" id="play"><i class="fa fa-play" aria-hidden="true"></i></button>
+                        <button onclick="nextSong()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+                    </div>
+                    <input type="range" min="0" max="100" value="0" id="slider" oninput="changeDuration(this)">
+                </section>
+                <section class="app__playlist">
+                    <ul>
+                        {% for song, song_id, song_num in numbered_songs %}
+                        <li class="playlist__song" id="{{ song_id }}" onclick="playFromPlaylist('{{ song_id }}')">
+                            <div class="playlist__song-num">{{ song_num }}</div>
+                            <div>
+                                <h3 class="playlist__title">{{ song.title }}</h3>
+                                <h4 class="playlist__author">{{ song.author}}</h4>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </div>
         </div>
     </div>
 

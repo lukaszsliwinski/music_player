@@ -9,29 +9,38 @@ button {
     padding: 5px;
     width: 40px;
     height: 40px;
-    font-size: 15px;
+    font-size: 20px;
     color: white;
 }
 
 button:hover {
-    border-color: var(--main);
-    color: var(--main);
+    transition: box-shadow .1s linear;
+    -webkit-box-shadow: 0px -1px 15px 1px rgb(0, 20, 22);
+    -moz-box-shadow: 0px -1px 15px 1px rgb(0, 20, 22);
+    box-shadow: 0px -1px 15px 1px rgb(0, 20, 22);
 }
 
 button:focus {
     outline: none;
 }
 
+.btns__play {
+    width: 50px;
+    height: 50px;
+}
 
 .app__controls {
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     display: flex;
+    height: 80px;
 }
 
 .app__btns {
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     display: flex;
+    width: 230px;
+    height: 50px;
 }

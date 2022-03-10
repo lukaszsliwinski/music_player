@@ -1,10 +1,10 @@
 /* playlist style */
 .app__playlist {
     overflow-y: auto;    
-    border-radius: 2px;
-    width: 280px;
-    height: 150px;
-    background-color: var(--playlist-background);
+    border-radius: 10px;
+    width: 370px;
+    height: 200px;
+    background-color: var(--background2);
     scrollbar-width: thin;
 }
 
@@ -12,18 +12,13 @@
     justify-content: flex-start;
     align-items: center;
     display: flex;
+    margin: 8px 3px;
     padding: 2px 0;
 }
 
-.playlist__song:first-of-type {
-    margin-top: 2px;
-}
-
-.playlist__song:last-of-type {
-    margin-bottom: 2px;
-}
 
 .playlist__song:hover {
+    border-radius: 10px;
     background-color: var(--song-hover);
     cursor: pointer;
 }

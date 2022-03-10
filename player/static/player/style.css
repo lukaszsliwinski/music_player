@@ -4,19 +4,27 @@
 
 /* used colors */
 :root {
-    --main: rgb(200, 200, 0);
-    --background: rgb(15, 15, 15);
-    --playlist-background: rgb(25, 25, 25);
-    --song-hover: rgb(40, 40, 40);
-    --scrollbar: rgb(120, 120, 120);
-    --scrollbar-hover: rgb(80, 80, 80);
+    --main: rgb(0, 255, 255);
+    --background1: rgb(0, 4, 4);
+    --background2: rgb(0, 9, 9);
+    --app-background1: rgb(0, 90, 100);
+    --app-background2: rgb(0, 53, 60);
+    --song-hover: rgb(0, 40, 40);
+    --scrollbar: rgb(0, 40, 40);
+    --scrollbar-hover: rgb(0, 50, 50);
 }
 
 body {
+    background: linear-gradient(90deg, var(--background1) 0%, var(--background2) 100%);
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .1em;
     color: white;
     user-select: none;
+}
+
+.background-img {
+    background: url(./images/background.jpg) no-repeat center;
+    background-size: auto 100vh;
 }
 
 .container {
@@ -31,10 +39,15 @@ body {
     justify-content: space-around;
     align-items: center;
     display: flex;
-    border-radius: 5px;
-    width: 300px;
-    height: 500px;
-    background-color: var(--background);
+    margin-bottom: 150px;
+    box-shadow: 
+        12px 12px 16px -4px rgba(255, 255, 255, 0.3) inset,
+        -8px -8px 12px -4px rgba(0, 0, 0, .25) inset;
+    border-radius: 15px;
+    width: 400px;
+    height: 650px;
+    padding-top: 20px;
+    background: linear-gradient(115deg, var(--app-background1) 0%, var(--app-background2) 100%);
 }
 
 .app__inf {
@@ -46,8 +59,10 @@ body {
 
 .inf__cover {
     margin-bottom: 15px;
-    width: 180px;
-    height: 180px;
+    box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 250px;
+    height: 250px;
 }
 
 .inf__title {
