@@ -6,6 +6,14 @@ input[type=range] {
     width: 350px;
     height: 10px;
     background-color: transparent;
+    display: none;
+}
+
+/* display slider only in Mozilla */
+@-moz-document url-prefix() {
+    input[type=range] {
+        display: inline-block;
+    }
 }
 
 input[type=range]:focus {
@@ -31,7 +39,7 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-moz-range-thumb {
     -webkit-appearance: none;
     
-    box-shadow: -140px 0 0 130px var(--background2);
+    box-shadow: -200px 0 0 190px var(--background2);
     border: 1px solid var(--background2);
     border-radius: 50%;
     box-sizing: content-box;
