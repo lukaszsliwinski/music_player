@@ -3,6 +3,9 @@
 ## About
 This is simply music player uses Django framework for backend and Javascript for frontend. After create an account in administration panel you can add songs with covers witch displays on playlist. In the app you can play song, pause, go to next or previous and rewind with slider. This app is made for learning basics in Javascript and practice web development in Django.
 
+## Demo
+https://musicplayerportfolio.pythonanywhere.com/
+
 ## Used technologies
 Python 3.8<br>
 Django 3.2.7<br>
@@ -11,7 +14,7 @@ HTML5<br>
 CSS3<br>
 Javascript
 
-## Setup and run (Windows)
+## Setup and run on localhost (Windows)
 1 Install Python 3.8 from website:<br>
 &emsp;https://www.python.org/downloads/release/python-380/<br>
 &emsp;Important - remember to mark "Add Python 3.8 to PATH"!<br>
